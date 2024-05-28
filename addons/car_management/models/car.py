@@ -5,17 +5,17 @@ class Car(models.Model):
     _inherit = 'mail.thread'
     _description = 'Voiture'
 
-    name = fields.Char(string='Nom', required=True)
-    model = fields.Char(string='Modèle', required=True)
-    manufacturer = fields.Char(string='Fabricant', required=True)
-    seat_count = fields.Integer(string='Nombre de places', required=True)
+    name = fields.Char(string='Nom', required=True , tracking=True)
+    model = fields.Char(string='Modèle', required=True, tracking=True)
+    manufacturer = fields.Char(string='Fabricant', required=True , tracking=True)
+    seat_count = fields.Integer(string='Nombre de places', required=True , tracking=True)
     fuel_type = fields.Selection([
         ('petrol', 'Essence'),
         ('diesel', 'Diesel'),
         ('electric', 'Électrique'),
         ('hybrid', 'Hybride')],
-        string='Type de carburant', required=True)
-    driver_id = fields.Many2one('hr.employee', string='Chauffeur')
+        string='Type de carburant', required=True , tracking=True)
+    driver_id = fields.Many2one('hr.employee', string='Chauffeur' , tracking=True)
     operation_tracking_ids = fields.One2many('operation.tracking', 'vehicle_id', string="Opérations")
 
     def open_driver_details(self):
