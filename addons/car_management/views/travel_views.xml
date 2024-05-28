@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+    <!-- Vue Liste pour le modèle car.travel -->
+    <record model="ir.ui.view" id="car_travel_list_view">
+        <field name="name">car.travel.list</field>
+        <field name="model">car.travel</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="car_id"/>
+                <field name="departure_location"/>
+                <field name="destination"/>
+                <field name="departure_date"/>
+                <field name="arrival_date"/>
+                <field name="duration"/>
+                <field name="seat_count"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vue Formulaire pour le modèle car.travel -->
+    <record model="ir.ui.view" id="car_travel_form_view">
+        <field name="name">car.travel.form</field>
+        <field name="model">car.travel</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="car_id"/>
+                        <field name="departure_location"/>
+                        <field name="destination"/>
+                        <field name="departure_date"/>
+                        <field name="arrival_date"/>
+                        <field name="duration"/>
+                        <field name="seat_count"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vue Kanban pour le modèle car.travel -->
+    <record model="ir.ui.view" id="car_travel_kanban_view">
+        <field name="name">car.travel.kanban</field>
+        <field name="model">car.travel</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="car_id"/>
+                <field name="departure_location"/>
+                <field name="destination"/>
+                <field name="departure_date"/>
+                <field name="arrival_date"/>
+                <field name="duration"/>
+                <field name="seat_count"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <strong><field name="car_id"/></strong>
+                            <div>
+                                <field name="departure_location"/> -> <field name="destination"/>
+                            </div>
+                            <div>
+                                <field name="departure_date"/> -> <field name="arrival_date"/>
+                            </div>
+                            <div>
+                                Durée: <field name="duration"/> heures
+                            </div>
+                            <div>
+                                Places: <field name="seat_count"/>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+    </data>
+</odoo>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+    <!-- Vue Liste pour le modèle car.ticket -->
+    <record model="ir.ui.view" id="car_ticket_list_view">
+        <field name="name">car.ticket.list</field>
+        <field name="model">car.ticket</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="customer_id"/>
+                <field name="date"/>
+                <field name="amount"/>
+                <field name="destination"/>
+                <field name="car_id"/>
+                <field name="departure_time"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vue Formulaire pour le modèle car.ticket -->
+    <record model="ir.ui.view" id="car_ticket_form_view">
+        <field name="name">car.ticket.form</field>
+        <field name="model">car.ticket</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="customer_id"/>
+                        <field name="date"/>
+                        <field name="amount"/>
+                        <field name="destination"/>
+                        <field name="car_id"/>
+                        <field name="departure_time"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vue Kanban pour le modèle car.ticket -->
+    <record model="ir.ui.view" id="car_ticket_kanban_view">
+        <field name="name">car.ticket.kanban</field>
+        <field name="model">car.ticket</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="customer_id"/>
+                <field name="date"/>
+                <field name="amount"/>
+                <field name="destination"/>
+                <field name="car_id"/>
+                <field name="departure_time"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <strong><field name="customer_id"/></strong>
+                            <div>
+                                <field name="date"/>
+                                <field name="amount"/>
+                            </div>
+                            <div>
+                                Destination: <field name="destination"/>
+                            </div>
+                            <div>
+                                Voiture: <field name="car_id"/>
+                            </div>
+                            <div>
+                                Départ: <field name="departure_time"/>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+    </data>
+</odoo>

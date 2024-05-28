@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Vue Liste pour le modèle car.car -->
+    <record model="ir.ui.view" id="car_car_list_view">
+        <field name="name">car.car.list</field>
+        <field name="model">car.car</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="model"/>
+                <field name="manufacturer"/>
+                <field name="seat_count"/>
+                <field name="fuel_type"/>
+                <field name="driver_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vue Formulaire pour le modèle car.car -->
+    <record model="ir.ui.view" id="car_car_form_view">
+        <field name="name">car.car.form</field>
+        <field name="model">car.car</field>
+        <field name="arch" type="xml">
+            <form>
+                 <header>
+                    <button name="open_driver_details" type="object" string="Détail Chauffeur" class="btn-primary"/>
+                    <button name="open_change_driver_wizard" type="object" string="Changer Chauffeur" class="btn-secondary"/>
+                </header>
+
+                <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="model"/>
+                            <field name="manufacturer"/>
+                            <field name="seat_count"/>
+                            <field name="fuel_type"/>
+                            <field name="driver_id"/>
+                        </group>
+
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_ids" widget="mail_thread"/>
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                </div>
+                <!-- Chatter -->
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" groups="base.group_user"/>
+                        <field name="message_ids"/>
+                    </div>
+
+            </form>
+        </field>
+    </record>
+
+    <!-- Vue Kanban pour le modèle car.car -->
+    <record model="ir.ui.view" id="car_car_kanban_view">
+        <field name="name">car.car.kanban</field>
+        <field name="model">car.car</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name"/>
+                <field name="model"/>
+                <field name="manufacturer"/>
+                <field name="seat_count"/>
+                <field name="fuel_type"/>
+                <field name="driver_id"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <strong><field name="name"/></strong>
+                            <div><field name="model"/></div>
+                            <div><field name="manufacturer"/></div>
+                            <div>Places: <field name="seat_count"/></div>
+                            <div>Carburant: <field name="fuel_type"/></div>
+                            <div>Chauffeur: <field name="driver_id"/></div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+    <!-- Vue de recherche pour le modèle car.car -->
+    <record model="ir.ui.view" id="car_car_search_view">
+        <field name="name">car.car.search</field>
+        <field name="model">car.car</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="model"/>
+                <field name="manufacturer"/>
+                <field name="seat_count"/>
+                <field name="fuel_type"/>
+                <field name="driver_id"/>
+                <filter string="Essence" name="fuel_type_petrol" domain="[('fuel_type', '=', 'petrol')]"/>
+                <filter string="Diesel" name="fuel_type_diesel" domain="[('fuel_type', '=', 'diesel')]"/>
+                <filter string="Électrique" name="fuel_type_electric" domain="[('fuel_type', '=', 'electric')]"/>
+                <filter string="Hybride" name="fuel_type_hybrid" domain="[('fuel_type', '=', 'hybrid')]"/>
+                <group expand="0" string="Grouper par">
+                    <filter string="Essence" name="group_by_petrol" domain="[('fuel_type', '=', 'petrol')]" context="{'group_by':'fuel_type'}"/>
+                    <filter string="Diesel" name="group_by_diesel" domain="[('fuel_type', '=', 'diesel')]" context="{'group_by':'fuel_type'}"/>
+                    <filter string="Électrique" name="group_by_electric" domain="[('fuel_type', '=', 'electric')]" context="{'group_by':'fuel_type'}"/>
+                    <filter string="Hybride" name="group_by_hybrid" domain="[('fuel_type', '=', 'hybrid')]" context="{'group_by':'fuel_type'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+
+</odoo>

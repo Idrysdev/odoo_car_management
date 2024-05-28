@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <include src="views/car_views.xml"/>
+        <include src="views/travel_views.xml"/>
+        <include src="views/ticket_views.xml"/>
+    </data>
+</odoo>

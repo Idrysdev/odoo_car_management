@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_car_car,access_car_car,model_car_car,base.group_user,1,1,1,1
+access_car_travel,access_car_travel,model_car_travel,base.group_user,1,1,1,1
+access_car_ticket,access_car_ticket,model_car_ticket,base.group_user,1,1,1,1
+access_change_driver_wizard,access_change_driver_wizard,model_change_driver_wizard,base.group_user,1,1,1,1
+access_operation_tracking,access_operation_tracking,model_operation_tracking,base.group_user,1,1,1,1

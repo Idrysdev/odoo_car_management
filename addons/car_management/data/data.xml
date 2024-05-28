@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <!-- Charger les vues -->
+        <function model="ir.model.data" name="_update_xmlids">
+            <value model="ir.module.module" search="[]" use="name">car_management</value>
+        </function>
+
+</odoo>

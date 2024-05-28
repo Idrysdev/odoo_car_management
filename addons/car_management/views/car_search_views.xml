@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Vue de recherche pour le modèle car.car -->
+    <record model="ir.ui.view" id="car_car_search_view">
+        <field name="name">car.car.search</field>
+        <field name="model">car.car</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="model"/>
+                <field name="manufacturer"/>
+                <field name="seat_count"/>
+                <field name="fuel_type"/>
+                <field name="driver_id"/>
+                <filter string="Essence" name="fuel_type_petrol" domain="[('fuel_type', '=', 'petrol')]"/>
+                <filter string="Diesel" name="fuel_type_diesel" domain="[('fuel_type', '=', 'diesel')]"/>
+                <filter string="Électrique" name="fuel_type_electric" domain="[('fuel_type', '=', 'electric')]"/>
+                <filter string="Hybride" name="fuel_type_hybrid" domain="[('fuel_type', '=', 'hybrid')]"/>
+
+            </search>
+        </field>
+    </record>
+</odoo>

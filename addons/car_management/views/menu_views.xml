@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Actions -->
+        <record id="action_car" model="ir.actions.act_window">
+            <field name="name">Voitures</field>
+            <field name="res_model">car.car</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="action_travel" model="ir.actions.act_window">
+            <field name="name">Voyages</field>
+            <field name="res_model">car.travel</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="action_ticket" model="ir.actions.act_window">
+            <field name="name">Tickets</field>
+            <field name="res_model">car.ticket</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menus -->
+        <menuitem id="menu_main" name="Module de véhicule" sequence="1"/>
+        <menuitem id="menu_car" name="Voitures" parent="menu_main" sequence="1" action="action_car"/>
+        <menuitem id="menu_travel" name="Voyages" parent="menu_main" sequence="2" action="action_travel"/>
+        <menuitem id="menu_ticket" name="Tickets" parent="menu_main" sequence="3" action="action_ticket"/>
+    </data>
+</odoo>
